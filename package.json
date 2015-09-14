@@ -1,0 +1,16 @@
+{
+  "name": "libroangularjs",
+  "version": "1.0.0",
+  "description": "Pelis y series con Angular",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eumendoza/angularFilmsApp.git"
+  },
+  "author": "Eugenio Mendoza",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp-connect": "^2.2.0",
+    "gulp": "^3.9.0"
+  }
+}

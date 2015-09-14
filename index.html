@@ -2,14 +2,32 @@
 <html ng-app="myFilmsApp">
 <head lang="es">
 	<meta charset="utf-8">
-	<title>Películas y series</title>
+	<title>Películas y Series</title>
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
 </head>
 <body>
+
+
+	<div class="container">
+		<header>
+			<h1>Películas y Series</h1>
+		</header>
+		<nav ng-controller="navegacionCtrl">
+			<ul class="nav nav-tabs">
+		  		<li ng-class="{'active': rutaPelicula()}"><a href="#/peliculas">Películas</a></li>
+		  		<li ng-class="{'active': rutaSerie()}"><a href="#/series">Series</a></li>
+			</ul>
+		</nav>
+	</div>
+
+	<section app-view-segment="0"></section>
 
 	<script src="bower_components/angular/angular.min.js"></script>
 	<script src="bower_components/angular-route/angular-route.min.js"></script>
 	<script src="bower_components/angular-route-segment/build/angular-route-segment.js"></script>
 	<script src="scripts/app.js"></script>
+	<script src="scripts/controllers/peliculasCtrl.js"></script>
+	<script src="scripts/controllers/seriesCtrl.js"></script>
+	<script src="scripts/controllers/navegacionCtrl.js"></script>
 </body>
 </html>

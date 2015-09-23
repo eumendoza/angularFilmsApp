@@ -28,6 +28,4 @@ angular.module('myFilmsApp').config(['$routeSegmentProvider', function($routeSeg
 		templateUrl: 'views/series.html'
 	});
 
-
-
 }]);

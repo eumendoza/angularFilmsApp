@@ -5,6 +5,7 @@ angular.module('myFilmsApp').config(['$routeSegmentProvider', function($routeSeg
 	$routeSegmentProvider.when('/peliculas', 'peliculas');
 	$routeSegmentProvider.when('/peliculas/proximamente', 'peliculas.proximamente');
 	$routeSegmentProvider.when('/peliculas/cartelera', 'peliculas.cartelera');
+	$routeSegmentProvider.when('/peliculas/detalles', 'peliculas.detalles');
 
 	$routeSegmentProvider.when('/series', 'series');
 
@@ -17,7 +18,7 @@ angular.module('myFilmsApp').config(['$routeSegmentProvider', function($routeSeg
 		controller: 'peliculasProximamenteCtrl',
 		templateUrl: 'views/peliculasProximamente.html',
 		resolve: {
-			peliculas: ['ApiService', function(ApiService){
+			peliculas: ['ApiService', function(ApiService) {
 				return ApiService.consultaApi('movie/upcoming');
 			}]
 		}
@@ -27,8 +28,18 @@ angular.module('myFilmsApp').config(['$routeSegmentProvider', function($routeSeg
 		controller: 'peliculasCarteleraCtrl',
 		templateUrl: 'views/peliculasCartelera.html',
 		resolve: {
-			peliculas: ['ApiService', function(ApiService){
+			peliculas: ['ApiService', function(ApiService) {
 				return ApiService.consultaApi('movie/now_playing');
+			}]
+		}
+	});
+
+	$routeSegmentProvider.within('peliculas').segment('detalles', {
+		controller: 'peliculasDetallesCtrl',
+		templateUrl: 'views/peliculasDetalles.html',
+		resolve: {
+			detalles: ['ApiService', '$routeParams', function(ApiService, $routeParams) {
+				return ApiService.consultaApi('movie/' + $routeParams.idPelicula);
 			}]
 		}
 	});

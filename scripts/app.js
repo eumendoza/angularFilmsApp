@@ -15,12 +15,22 @@ angular.module('myFilmsApp').config(['$routeSegmentProvider', function($routeSeg
 
 	$routeSegmentProvider.within('peliculas').segment('proximamente', {
 		controller: 'peliculasProximamenteCtrl',
-		templateUrl: 'views/peliculasProximamente.html'
+		templateUrl: 'views/peliculasProximamente.html',
+		resolve: {
+			peliculas: ['ApiService', function(ApiService){
+				return ApiService.consultaApi('movie/upcoming');
+			}]
+		}
 	});
 
 	$routeSegmentProvider.within('peliculas').segment('cartelera', {
 		controller: 'peliculasCarteleraCtrl',
-		templateUrl: 'views/peliculasCartelera.html'
+		templateUrl: 'views/peliculasCartelera.html',
+		resolve: {
+			peliculas: ['ApiService', function(ApiService){
+				return ApiService.consultaApi('movie/now_playing');
+			}]
+		}
 	});
 
 	$routeSegmentProvider.segment('series', {

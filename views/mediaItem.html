@@ -1,0 +1,5 @@
+<tr>
+	<td><img ng-src="{{ rutaImagen(92, datos.poster_path) }}" class="img-thumbnail"/></td>
+	<td><a href="" ng-click="clickMedia(datos.id)">{{ datos.title }}</a></td>
+	<td>{{ datos.release_date | date:'dd/MM/yyyy' | fechaEstreno }}</td>
+</tr>

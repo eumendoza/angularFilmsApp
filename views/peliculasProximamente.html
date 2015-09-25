@@ -1,9 +1,5 @@
 <table class="table table-striped">
 	<tbody>
-		<tr ng-repeat="pelicula in peliculas">
-			<td><img ng-src="{{rutaImagen(92,pelicula.poster_path)}}" class="img-thumbnail"/></td>
-			<td><a href="" ng-click="verDetalle(pelicula.id)">{{pelicula.title}}</a></td>
-			<td>{{pelicula.release_date | date:'dd/MM/yyyy' | fechaEstreno }}</td>
-		</tr>
+		<tr ng-repeat="pelicula in peliculas" media-item datos="pelicula" al-seleccionar="verDetalle(mediaId)"></tr>
 	</tbody>
 </table>

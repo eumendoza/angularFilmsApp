@@ -1,1 +1,6 @@
-<header>{{detalles.title}}</header>
+<header>
+	<h4>{{detalles.title}}</h4>
+	<votacion media="{{detalles.vote_average}}"></votacion>
+	<generos listageneros="detalles.genres"></generos>
+</header>
+<img ng-src="{{ rutaImagen(300, detalles.poster_path) }}" class="img-thumbnail"/>
